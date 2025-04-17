@@ -23,7 +23,10 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
+      "expo-asset",
+      "expo-font",
       "expo-router",
+      "expo-image",
       [
         "expo-splash-screen",
         {
