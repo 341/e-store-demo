@@ -5,7 +5,7 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "scheme": "e-store-demo",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
@@ -26,7 +26,6 @@
       "expo-asset",
       "expo-font",
       "expo-router",
-      "expo-image",
       [
         "expo-splash-screen",
         {
