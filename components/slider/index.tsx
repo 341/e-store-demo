@@ -1,5 +1,5 @@
-import {useState, useRef} from 'react'
-import {StyleSheet, Text, View} from 'react-native'
+import {useRef} from 'react'
+import {StyleSheet, View} from 'react-native'
 import Swiper from 'react-native-swiper'
 import Slide1 from '@/assets/images/screens/on-boarding-1.png';
 import Slide2 from '@/assets/images/screens/on-boarding-2.jpg';
@@ -54,7 +54,6 @@ const items = [
     }
 ]
 export default function Slider() {
-    const [slideIndex, setSlideIndex] = useState<number>(0);
     const swiperRef = useRef<Swiper>(null);
     const goToSlide = (index: number) => {
         if (index >= items.length) {
