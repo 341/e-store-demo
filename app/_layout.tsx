@@ -8,6 +8,13 @@ import {ApplicationProvider, IconRegistry} from "@ui-kitten/components";
 import {EvaIconsPack} from "@ui-kitten/eva-icons";
 import * as eva from "@eva-design/eva";
 
+import {
+  Inter_400Regular,
+  Inter_500Medium,
+  Inter_600SemiBold,
+  Inter_700Bold,
+} from '@expo-google-fonts/inter';
+
 import {default as theme} from '../components/theme/custom-theme.json';
 import {StatusBar} from "expo-status-bar";
 
@@ -18,7 +25,12 @@ SplashScreen.setOptions({
 });
 
 export default function RootLayout() {
-  let [fontsLoaded, error] = useFonts({});
+  let [fontsLoaded, error] = useFonts({
+    Inter_400Regular,
+    Inter_500Medium,
+    Inter_600SemiBold,
+    Inter_700Bold,
+  });
 
   useEffect(() => {
     if (fontsLoaded || error) {

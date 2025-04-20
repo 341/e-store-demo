@@ -31,7 +31,7 @@ export default function SlideItem({title, content, image, nextSlide, index}: {
             />
 
             <View style={styles.slideItemContent}>
-                <Text category='h1' style={styles.slideItemContentHeader}>
+                <Text category='h4' style={styles.slideItemContentHeader}>
                     {title}
                 </Text>
                 <Text style={styles.slideItemContentParagraph}>
@@ -63,10 +63,9 @@ const themedStyles = StyleService.create({
         padding: 20,
     } as ViewStyle,
     slideItemContentHeader: {
-        fontSize: 20,
         color: 'white',
         textAlign: 'center',
-        fontWeight: 'bold',
+        fontWeight: 600,
         marginBottom: 8,
     } as TextStyle,
     slideItemContentParagraph: {
