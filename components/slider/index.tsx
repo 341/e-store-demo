@@ -1,7 +1,7 @@
 import {useRef} from 'react'
 import {StyleSheet, View} from 'react-native'
 import Swiper from 'react-native-swiper'
-import Slide1 from '@/assets/images/screens/on-boarding-1.png';
+import Slide1 from '@/assets/images/screens/on-boarding-1.jpg';
 import Slide2 from '@/assets/images/screens/on-boarding-2.jpg';
 import Slide3 from '@/assets/images/screens/on-boarding-3.jpg';
 import SlideItem from './slideItem';
