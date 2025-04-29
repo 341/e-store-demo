@@ -1,26 +1,60 @@
-import {View, ViewStyle, TextStyle, ImageStyle, StyleProp} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import {Image} from 'expo-image';
-import {useStyleSheet, Button, StyleService, Text} from '@ui-kitten/components';
+import {Button} from 'react-native-paper';
+import lightColors from '@/themes/colors';
 
-// Define the style interface
-interface SlideItemStyles {
-    slideItem: StyleProp<ViewStyle>;
-    slideItemContent: StyleProp<ViewStyle>;
-    slideItemContentHeader: StyleProp<TextStyle>;
-    slideItemContentParagraph: StyleProp<TextStyle>;
-    image: StyleProp<ImageStyle>;
-    topShadow: StyleProp<ViewStyle>;
-    bottomShadow: StyleProp<ViewStyle>;
-}
+const styles = StyleSheet.create({
+    slideItem: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%',
+    },
+    slideItemContent: {
+        zIndex: 4,
+        position: 'absolute',
+        bottom: 150,
+        left: 10,
+        right: 10,
+        padding: 20,
+    },
+    slideItemContentHeader: {
+        fontSize: 20,
+        color: lightColors.white,
+        textAlign: 'center',
+        fontWeight: 'bold',
+        marginBottom: 8,
+    },
+    slideItemContentParagraph: {
+        fontSize: 14,
+        color: lightColors.gray,
+        textAlign: 'center',
+    },
+    image: {
+        flex: 1,
+        zIndex: 1,
+        width: '100%',
+        backgroundColor: '#0553',
+    },
+    topShadow: {
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        top: 0,
+        zIndex: 2,
+        height: '30%',
+    },
+    bottomShadow: {
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        bottom: 0,
+        zIndex: 2,
+        height: '50%',
+    },
+});
 
-export default function SlideItem({title, content, image, nextSlide, index}: {
-    title: string,
-    content: string,
-    image: any,
-    nextSlide: (number: number) => void,
-    index: number
-}) {
-    const styles = useStyleSheet(themedStyles) as SlideItemStyles;
+export default function SlideItem({title, content, image, nextSlide, index}: { title: string, content: string, image: any, nextSlide: (number: number) => void, index: number}) {
     return (
         <View style={styles.slideItem}>
             <Image
@@ -31,7 +65,7 @@ export default function SlideItem({title, content, image, nextSlide, index}: {
             />
 
             <View style={styles.slideItemContent}>
-                <Text category='h1' style={styles.slideItemContentHeader}>
+                <Text style={styles.slideItemContentHeader}>
                     {title}
                 </Text>
                 <Text style={styles.slideItemContentParagraph}>
@@ -43,57 +77,3 @@ export default function SlideItem({title, content, image, nextSlide, index}: {
         </View>
     );
 }
-
-const themedStyles = StyleService.create({
-    slideItem: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: '100%',
-    } as ViewStyle,
-    slideItemContent: {
-        backgroundColor: 'color-primary-500',
-        borderRadius: 48,
-        height: 400,
-        zIndex: 4,
-        position: 'absolute',
-        bottom: 40,
-        left: 10,
-        right: 10,
-        padding: 20,
-    } as ViewStyle,
-    slideItemContentHeader: {
-        fontSize: 20,
-        color: 'white',
-        textAlign: 'center',
-        fontWeight: 'bold',
-        marginBottom: 8,
-    } as TextStyle,
-    slideItemContentParagraph: {
-        fontSize: 14,
-        color: 'white',
-        textAlign: 'center',
-    } as TextStyle,
-    image: {
-        flex: 1,
-        zIndex: 1,
-        width: '100%',
-        backgroundColor: '#0553',
-    } as ImageStyle,
-    topShadow: {
-        position: 'absolute',
-        left: 0,
-        right: 0,
-        top: 0,
-        zIndex: 2,
-        height: '30%',
-    } as ViewStyle,
-    bottomShadow: {
-        position: 'absolute',
-        left: 0,
-        right: 0,
-        bottom: 0,
-        zIndex: 2,
-        height: '50%',
-    } as ViewStyle,
-});

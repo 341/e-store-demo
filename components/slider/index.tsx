@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     wrapper: {},
     paginationStyle: {
         position: 'absolute',
-        bottom: 10,
+        top: 10,
         height: 20,
         left: 10,
         right: 10,
@@ -67,18 +67,20 @@ export default function Slider() {
     return (
         <View style={styles.main}>
             <Swiper
-                ref={swiperRef}
                 paginationStyle={styles.paginationStyle}
                 dotStyle={styles.dotStyle}
                 activeDotStyle={styles.dotStyle}
                 style={styles.wrapper}
-                index={0}
                 dotColor={styles.dotColor.backgroundColor}
                 activeDotColor={styles.activeDotColor.backgroundColor}
                 showsButtons={false}>
                 {items.map((item, index) =>
-                    <SlideItem key={index} index={index} nextSlide={goToSlide} title={item.title}
-                               content={item.content} image={item.image}/>)}
+                    <View key={index} style={{flex: 1,
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        width: '100%'}} >
+                        <SlideItem title={item.title} nextSlide={goToSlide} content={item.content} image={item.image} index={index}/>
+                    </View>)}
             </Swiper>
         </View>
     );

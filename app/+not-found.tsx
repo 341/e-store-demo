@@ -1,22 +1,25 @@
-import { Link, Stack } from 'expo-router';
-import { StyleSheet } from 'react-native';
-import {Layout, Text} from "@ui-kitten/components";
+import {Link, Stack} from 'expo-router';
+import {StyleSheet, View} from 'react-native';
+import {Text} from 'react-native-paper';
+import lightColors from "@/themes/colors";
+
 export default function NotFoundScreen() {
   return (
-    <>
-      <Stack.Screen options={{ title: 'Oops!' }} />
-      <Layout style={styles.container}>
-        <Text>This screen doesn't exist.</Text>
-        <Link href="/" style={styles.link}>
-          <Text>Go to home screen!</Text>
-        </Link>
-      </Layout>
-    </>
+      <>
+        <Stack.Screen options={{title: 'Oops!'}}/>
+        <View style={styles.container}>
+          <Text>This screen doesn't exist.</Text>
+          <Link href="/" style={styles.link}>
+            <Text>Go to home screen!</Text>
+          </Link>
+        </View>
+      </>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: lightColors.grayDark,
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
